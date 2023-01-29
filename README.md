@@ -1,5 +1,7 @@
 # Job listings with filtering
 
+Live demo - [open](https://job-listings-with-filtering-lime.vercel.app/)
+
 ## Table of Contents
 
 - [Technologies Used](#technologies-used)
@@ -15,12 +17,13 @@
 
 ## Naming Convention
 
-We will use a **KebabCase**. Kebab case is a programming variable naming convention where a developer replaces the spaces between words with a dash.
+We will use a **kebab-case**. Kebab case is a programming variable naming convention where a developer replaces the spaces between words with a dash.
 
 Here are some examples of kebab case: `component-name.tsx` and `other-component.tsx`.
 
 ## Directory Structure
 
+- `src/@types` - module declarations
 - `src/assets` - all media
 - `src/components` - all components
 - `src/theme` - theme configuration
