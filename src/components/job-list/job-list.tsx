@@ -33,10 +33,8 @@ export const JobList = () => {
   };
 
   const addTag = (name: string) => {
-    if (!tags.includes(name)) {
-      const updatedTags = [...tags, name];
-      updateTags(updatedTags);
-    }
+    const updatedTags = tags.includes(name) ? tags.filter((tag) => tag !== name) : [...tags, name];
+    updateTags(updatedTags);
   };
 
   return (
