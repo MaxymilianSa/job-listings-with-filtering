@@ -1,59 +1,40 @@
-import React, { useState } from 'react';
+import React, { useReducer } from 'react';
 
-import { Container } from 'components/commons/container';
+import { Container } from 'components/commons/container/container';
 
-import { Wrapper, Banner, List } from './job-list.styled';
-import { SearchBar } from './search-bar';
-import { Offer, OfferType } from './offer';
+import * as Styled from './job-list.styled';
+import { SearchBar } from './search-bar/search-bar';
+import { Offer } from './offer/offer';
 
 import { jobs } from './const';
+import { reducer, initialState, filterJobs } from './useJobList';
 
 export const JobList = () => {
-  const [tags, setTags] = useState<string[]>([]);
+  const [tags, dispatch] = useReducer(reducer, initialState);
 
-  const getFiltredJobs = (tags: string[]) => {
-    if (tags.length === 0) return jobs;
-    return jobs.filter(({ role, level, tools, languages }) => {
-      const jobTags = [role, level, ...tools, ...languages];
-      const notMatchedTags = tags.filter((tag) => !jobTags.includes(tag));
-      return notMatchedTags.length === 0;
-    });
-  };
-
-  const [filtredJobs, setFiltred] = useState<OfferType[]>(getFiltredJobs(tags));
-
-  const updateTags = (tags: string[]) => {
-    setTags(tags);
-    setFiltred(getFiltredJobs(tags));
-  };
-
-  const removeTag = (name: string) => {
-    const updatedTags = tags.filter((tag) => tag !== name);
-    updateTags(updatedTags);
-  };
-
-  const addTag = (name: string) => {
-    const updatedTags = tags.includes(name) ? tags.filter((tag) => tag !== name) : [...tags, name];
-    updateTags(updatedTags);
+  const renderJobs = () => {
+    return filterJobs({ tags, jobs }).map((job) => (
+      <Offer
+        key={job.id}
+        {...job}
+        handleTagClick={(name) => dispatch({ type: 'add', payload: name })}
+      />
+    ));
   };
 
   return (
-    <Wrapper>
-      <Banner />
+    <Styled.Wrapper>
+      <Styled.Banner />
       {tags.length > 0 && (
         <SearchBar
           tags={tags}
-          handleClearTags={() => updateTags([])}
-          handleRemoveTag={(name) => removeTag(name)}
+          handleClearTags={() => dispatch({ type: 'clear' })}
+          handleRemoveTag={(name) => dispatch({ type: 'remove', payload: name })}
         />
       )}
       <Container>
-        <List>
-          {filtredJobs.map((job) => (
-            <Offer key={job.id} {...job} handleTagClick={(name) => addTag(name)} />
-          ))}
-        </List>
+        <Styled.List>{renderJobs()}</Styled.List>
       </Container>
-    </Wrapper>
+    </Styled.Wrapper>
   );
 };

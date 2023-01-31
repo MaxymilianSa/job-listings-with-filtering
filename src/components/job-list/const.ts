@@ -1,13 +1,13 @@
-import Photosnap from 'assets/icons/jobs/photosnap.svg';
-import Manage from 'assets/icons/jobs/manage.svg';
-import Account from 'assets/icons/jobs/account.svg';
-import MyHome from 'assets/icons/jobs/myhome.svg';
-import LoopStudios from 'assets/icons/jobs/loop-studios.svg';
-import FaceIt from 'assets/icons/jobs/faceit.svg';
-import Shortly from 'assets/icons/jobs/shortly.svg';
-import Insure from 'assets/icons/jobs/insure.svg';
-import EyecamCo from 'assets/icons/jobs/eyecam-co.svg';
-import TheAirFilterCompany from 'assets/icons/jobs/the-air-filter-company.svg';
+import Photosnap from 'assets/images/jobs/photosnap.svg';
+import Manage from 'assets/images/jobs/manage.svg';
+import Account from 'assets/images/jobs/account.svg';
+import MyHome from 'assets/images/jobs/myhome.svg';
+import LoopStudios from 'assets/images/jobs/loop-studios.svg';
+import FaceIt from 'assets/images/jobs/faceit.svg';
+import Shortly from 'assets/images/jobs/shortly.svg';
+import Insure from 'assets/images/jobs/insure.svg';
+import EyecamCo from 'assets/images/jobs/eyecam-co.svg';
+import TheAirFilterCompany from 'assets/images/jobs/the-air-filter-company.svg';
 
 export const jobs = [
   {

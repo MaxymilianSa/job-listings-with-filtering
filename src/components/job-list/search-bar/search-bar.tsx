@@ -1,9 +1,9 @@
 import React from 'react';
 
-import { Container } from 'components/commons/container';
-import { Filter } from 'components/commons/filter';
+import { Container } from 'components/commons/container/container';
+import { Filter } from 'components/commons/filter/filter';
 
-import { Wrapper, List, Button } from './search-bar.styled';
+import * as Styled from './search-bar.styled';
 
 export type SearchBarType = {
   tags: string[];
@@ -13,13 +13,13 @@ export type SearchBarType = {
 
 export const SearchBar = ({ tags, handleRemoveTag, handleClearTags }: SearchBarType) => (
   <Container>
-    <Wrapper>
-      <List>
+    <Styled.Wrapper>
+      <Styled.List>
         {tags.map((tag) => (
           <Filter key={tag} handleClick={() => handleRemoveTag(tag)} name={tag} />
         ))}
-      </List>
-      <Button onClick={handleClearTags}>Clear</Button>
-    </Wrapper>
+      </Styled.List>
+      <Styled.Button onClick={handleClearTags}>Clear</Styled.Button>
+    </Styled.Wrapper>
   </Container>
 );

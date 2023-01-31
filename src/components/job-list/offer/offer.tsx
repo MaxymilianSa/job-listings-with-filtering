@@ -1,19 +1,8 @@
 import React from 'react';
 
-import { Tab } from 'components/commons/tab';
-import { Tag } from 'components/commons/tag';
-
-import {
-  Wrapper,
-  InformationWrapper,
-  Thumb,
-  Content,
-  ContentTop,
-  TabsList,
-  Title,
-  Information,
-  List,
-} from './offer.styled';
+import { List } from './list/list';
+import { Information } from './information/information';
+import * as Styled from './offer.styled';
 
 export type OfferType = {
   id: number;
@@ -53,32 +42,11 @@ export const Offer = ({
   const tags = [role, level, ...tools, ...languages];
 
   return (
-    <Wrapper featured={isFeatured}>
-      <InformationWrapper>
-        <Thumb src={logo} alt={company} loading="lazy" width={88} height={88} />
-        <Content>
-          <ContentTop>
-            <p>{company}</p>
-            <TabsList>
-              {isNew && <Tab variant="primary" name="NEW!" />}
-              {isFeatured && <Tab variant="secondary" name="FEATURED" />}
-            </TabsList>
-          </ContentTop>
-          <Title>{position}</Title>
-          <Information>
-            <p>{postedAt}</p>
-            <p>&bull;</p>
-            <p>{contract}</p>
-            <p>&bull;</p>
-            <p>{location}</p>
-          </Information>
-        </Content>
-      </InformationWrapper>
-      <List>
-        {tags.map((tag) => (
-          <Tag key={tag} handleClick={() => handleTagClick(tag)} name={tag} />
-        ))}
-      </List>
-    </Wrapper>
+    <Styled.Wrapper featured={isFeatured}>
+      <Information
+        {...{ company, logo, isNew, isFeatured, position, postedAt, contract, location }}
+      />
+      <List tags={tags} handleTagClick={(name) => handleTagClick(name)} />
+    </Styled.Wrapper>
   );
 };

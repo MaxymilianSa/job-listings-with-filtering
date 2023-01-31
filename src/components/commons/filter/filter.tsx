@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { ReactComponent as CloseIcon } from 'assets/icons/close.svg';
+import { ReactComponent as CloseIcon } from './close.svg';
 
-import { Wrapper, Button } from './filter.styled';
+import * as Styled from './filter.styled';
 
 export type TagType = {
   name: string;
@@ -10,10 +10,10 @@ export type TagType = {
 };
 
 export const Filter = ({ name, handleClick }: TagType) => (
-  <Wrapper onClick={handleClick}>
+  <Styled.Wrapper onClick={handleClick}>
     <p>{name}</p>
-    <Button onClick={handleClick}>
+    <Styled.Button>
       <CloseIcon />
-    </Button>
-  </Wrapper>
+    </Styled.Button>
+  </Styled.Wrapper>
 );
