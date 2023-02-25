@@ -17,7 +17,9 @@ export const JobList = () => {
       <Offer
         key={job.id}
         {...job}
-        handleTagClick={(name) => dispatch({ type: 'add', payload: name })}
+        handleTagClick={(name) =>
+          dispatch({ type: tags.includes(name.toLowerCase()) ? 'remove' : 'add', payload: name })
+        }
       />
     ));
   };

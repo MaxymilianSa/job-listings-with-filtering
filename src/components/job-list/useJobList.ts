@@ -13,11 +13,11 @@ export function reducer(
 ): typeof initialState {
   switch (action.type) {
     case 'add':
-      return state.includes(action.payload)
-        ? state.filter((tag) => tag !== action.payload)
-        : [...state, action.payload];
+      return state.map((tag) => tag).includes(action.payload.toLowerCase())
+        ? state
+        : [...state, action.payload.toLowerCase()];
     case 'remove':
-      return state.filter((tag) => tag !== action.payload);
+      return state.filter((tag) => tag !== action.payload.toLowerCase());
     case 'clear':
       return [];
     default:
@@ -31,6 +31,8 @@ export const filterJobs = ({ tags, jobs }: { tags: string[]; jobs: OfferType[] }
   }
   return jobs.filter(({ role, level, tools, languages }) => {
     const jobTags = [role, level, ...tools, ...languages];
-    return tags.every((tag) => jobTags.includes(tag));
+    return tags
+      .map((tag) => tag.toLowerCase())
+      .every((tag) => jobTags.map((jobTag) => jobTag.toLowerCase()).includes(tag));
   });
 };
