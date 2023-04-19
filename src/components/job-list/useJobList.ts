@@ -3,8 +3,8 @@ import { OfferType } from './offer/offer';
 export const initialState: string[] = [];
 
 type ActionType =
-  | { type: 'add'; payload: string }
-  | { type: 'remove'; payload: string }
+  | { payload: string; type: 'add' }
+  | { payload: string; type: 'remove' }
   | { type: 'clear' };
 
 export function reducer(
@@ -25,7 +25,7 @@ export function reducer(
   }
 }
 
-export const filterJobs = ({ tags, jobs }: { tags: string[]; jobs: OfferType[] }) => {
+export const filterJobs = ({ tags, jobs }: { jobs: OfferType[]; tags: string[] }) => {
   if (!tags.length) {
     return jobs;
   }
