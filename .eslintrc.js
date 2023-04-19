@@ -4,6 +4,11 @@ module.exports = {
     es6: true,
     node: true,
   },
+  settings: {
+    react: {
+      version: 'detect',
+    },
+  },
   extends: [
     'eslint:recommended',
     'plugin:react/recommended',
@@ -28,19 +33,12 @@ module.exports = {
     radix: 'error',
     'space-before-blocks': 'error',
     'import/prefer-default-export': 'off',
-    'no-unused-vars': 'off',
+    'no-unused-vars': 'error',
     '@typescript-eslint/no-unused-vars': 'warn',
   },
   overrides: [
     {
-      files: [
-        '**/*.test.js',
-        '**/*.test.jsx',
-        '**/*.test.tsx',
-        '**/*.spec.js',
-        '**/*.spec.jsx',
-        '**/*.spec.tsx',
-      ],
+      files: ['*.js', '*.jsx', '*.tsx'],
       env: {
         jest: true,
       },

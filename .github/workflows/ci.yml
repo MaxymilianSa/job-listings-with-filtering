@@ -1,0 +1,22 @@
+name: CI Learning
+
+on:
+  push: 
+    branches:
+      - main
+
+jobs: 
+  build: 
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: yarn install
+    - run: yarn install
+    - name: eslint
+    - run: yarn lint:fix
+    - name: prettier
+    - run: yarn format
+    - name: tests
+    - run: yarn test
