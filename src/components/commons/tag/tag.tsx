@@ -3,8 +3,8 @@ import React from 'react';
 import { Wrapper } from './tag.styled';
 
 export type TagType = {
-  name: string;
   handleClick: () => void;
+  name: string;
 };
 
 export const Tag = ({ name, handleClick }: TagType) => (

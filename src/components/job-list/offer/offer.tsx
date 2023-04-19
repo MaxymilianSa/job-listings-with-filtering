@@ -1,22 +1,22 @@
 import React from 'react';
 
-import { List } from './list/list';
 import { Information } from './information/information';
+import { List } from './list/list';
 import * as Styled from './offer.styled';
 
 export type OfferType = {
-  id: number;
   company: string;
-  logo: string;
-  isNew: boolean;
-  isFeatured: boolean;
-  position: string;
-  role: string;
-  level: string;
-  postedAt: string;
   contract: string;
-  location: string;
+  id: number;
+  isFeatured: boolean;
+  isNew: boolean;
   languages: string[];
+  level: string;
+  location: string;
+  logo: string;
+  position: string;
+  postedAt: string;
+  role: string;
   tools: string[];
 };
 

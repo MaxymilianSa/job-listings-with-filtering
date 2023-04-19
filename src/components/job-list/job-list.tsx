@@ -2,18 +2,17 @@ import React, { useReducer } from 'react';
 
 import { Container } from 'components/commons/container/container';
 
-import * as Styled from './job-list.styled';
-import { SearchBar } from './search-bar/search-bar';
 import { Offer } from './offer/offer';
-
+import { SearchBar } from './search-bar/search-bar';
 import { jobs } from './const';
-import { reducer, initialState, filterJobs } from './useJobList';
+import * as Styled from './job-list.styled';
+import { filterJobs, initialState, reducer } from './useJobList';
 
 export const JobList = () => {
   const [tags, dispatch] = useReducer(reducer, initialState);
 
-  const renderJobs = () => {
-    return filterJobs({ tags, jobs }).map((job) => (
+  const renderJobs = () =>
+    filterJobs({ tags, jobs }).map((job) => (
       <Offer
         key={job.id}
         {...job}
@@ -22,7 +21,6 @@ export const JobList = () => {
         }
       />
     ));
-  };
 
   return (
     <Styled.Wrapper>

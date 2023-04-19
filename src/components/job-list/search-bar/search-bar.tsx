@@ -6,9 +6,9 @@ import { Filter } from 'components/commons/filter/filter';
 import * as Styled from './search-bar.styled';
 
 export type SearchBarType = {
-  tags: string[];
-  handleRemoveTag: (name: string) => void;
   handleClearTags: () => void;
+  handleRemoveTag: (name: string) => void;
+  tags: string[];
 };
 
 export const SearchBar = ({ tags, handleRemoveTag, handleClearTags }: SearchBarType) => (

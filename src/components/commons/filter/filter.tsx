@@ -1,12 +1,11 @@
 import React from 'react';
 
 import { ReactComponent as CloseIcon } from './close.svg';
-
 import * as Styled from './filter.styled';
 
 export type TagType = {
-  name: string;
   handleClick: () => void;
+  name: string;
 };
 
 export const Filter = ({ name, handleClick }: TagType) => (

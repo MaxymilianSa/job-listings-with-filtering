@@ -5,8 +5,8 @@ import { Tag } from 'components/commons/tag/tag';
 import * as Styled from './list.styled';
 
 type ListType = {
-  tags: string[];
   handleTagClick: (name: string) => void;
+  tags: string[];
 };
 
 export const List = ({ tags, handleTagClick }: ListType) => (

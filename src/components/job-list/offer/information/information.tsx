@@ -5,14 +5,14 @@ import { Tab } from 'components/commons/tab/tab';
 import * as Styled from './information.styled';
 
 type ListType = {
-  logo: string;
   company: string;
-  isNew: boolean;
+  contract: string;
   isFeatured: boolean;
+  isNew: boolean;
+  location: string;
+  logo: string;
   position: string;
   postedAt: string;
-  contract: string;
-  location: string;
 };
 
 export const Information = ({
