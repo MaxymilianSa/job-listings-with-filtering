@@ -2,3 +2,5 @@ build
 node_modules
 .github
 .eslintrc.js
+cypress.config.js
+cypress

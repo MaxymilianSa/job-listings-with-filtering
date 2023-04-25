@@ -14,7 +14,7 @@ export type SearchBarType = {
 export const SearchBar = ({ tags, handleRemoveTag, handleClearTags }: SearchBarType) => (
   <Container>
     <Styled.Wrapper>
-      <Styled.List>
+      <Styled.List id="filters">
         {tags.map((tag) => (
           <Filter key={tag} handleClick={() => handleRemoveTag(tag)} name={tag} />
         ))}

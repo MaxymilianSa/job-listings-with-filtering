@@ -4,3 +4,5 @@
 yarn lint-staged
 
 yarn vitest run
+
+yarn cypress run

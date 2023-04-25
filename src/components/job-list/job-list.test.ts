@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'vitest';
 
-import { filterJobs, reducer } from './useJobList';
 import { jobs } from './const';
+import { filterJobs, reducer } from './useJobList';
 
 describe('Job list methods tests', () => {
   test('reducer type is function', () => {
@@ -9,14 +9,14 @@ describe('Job list methods tests', () => {
   });
   test('add new tag to tags list', () => {
     let tags: string[] = [];
-    let newTag: string = 'javascript';
+    const newTag = 'javascript';
 
     tags = reducer(tags, { type: 'add', payload: newTag });
     expect(tags).toHaveLength(1);
   });
   test('try to add same tag to tags list', () => {
     let tags: string[] = [];
-    let newTag: string = 'Javascript';
+    const newTag = 'Javascript';
 
     tags = reducer(tags, { type: 'add', payload: newTag });
     tags = reducer(tags, { type: 'add', payload: newTag });
@@ -24,14 +24,14 @@ describe('Job list methods tests', () => {
   });
   test('remove tag from tags list', () => {
     let tags: string[] = ['javascript', 'python', 'senior', 'junior'];
-    let removeTag: string = 'senior';
+    const removeTag = 'senior';
 
     tags = reducer(tags, { type: 'remove', payload: removeTag });
     expect(tags).toHaveLength(3);
   });
   test('remove tag with other case from tags list', () => {
     let tags: string[] = ['javascript', 'python', 'senior', 'junior'];
-    let removeTag: string = 'SENIOR';
+    const removeTag = 'SENIOR';
 
     tags = reducer(tags, { type: 'remove', payload: removeTag });
     expect(tags).toHaveLength(3);
